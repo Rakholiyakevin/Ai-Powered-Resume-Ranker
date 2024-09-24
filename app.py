@@ -18,9 +18,11 @@ from query import search
 # from langchain_core import P_Template
 
 path="D:/Placement/cvs"
-Folder_loder(path)
+file_path=Folder_loder(path)
+print(file_path)
 #Convert pdf into Text
-# text=fileLoder()
+# text=fileLoder(file_path)
+# print(text)
 
 #Create Embadings
 # embedding=get_vactor_store(text)

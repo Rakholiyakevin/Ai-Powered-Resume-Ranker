@@ -9,6 +9,7 @@ def Folder_loder(folder_path):
         if filename.endswith(".pdf"):
             file_path = os.path.join(folder_path, filename)
             print(file_path,filename)
+            return file_path
         
 def fileLoder(file_path):
     path =file_path
