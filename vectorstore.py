@@ -68,7 +68,7 @@ def create_index(Dimention):
         # Create the index if it doesn't exist
         pc.create_index(
             name=index_name,
-            dimention=vector_dimension,  # Use the correct dimension here
+            dimension=vector_dimension,  # Use the correct dimension here
             metric="cosine",
             spec=s
         )

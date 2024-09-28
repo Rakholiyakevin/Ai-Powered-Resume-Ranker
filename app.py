@@ -7,7 +7,7 @@ from langchain_core.prompts import PromptTemplate
 import google.generativeai as genai
 
 from dotenv import load_dotenv
-from fileloder import fileLoder,Folder_loder
+from fileloder import fileLoder,Folder_loader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 from fileprocesser import get_text_chunks
@@ -17,28 +17,45 @@ from vectorstore import create_index
 from query import search
 # from langchain_core import P_Template
 
-path="D:/Placement/cvs"
-file_path=Folder_loder(path)
-print(file_path)
-#Convert pdf into Text
-# text=fileLoder(file_path)
-# print(text)
+#Load Folder
+path="./pdfs"
 
+pdf_files = Folder_loader(path)
+for pdf in pdf_files:
+
+#Convert pdf in to text 
+    text=fileLoder(pdf)
+    print(text)
+    
 #Create Embadings
-# embedding=get_vactor_store(text)
+    embedding=get_vactor_store(text)
+    print(embedding)
 
+    
 #Dimention Of Vector
-# dimention = len(embedding)
-# print(dimention)
-
+    dimention = len(embedding)
+    print(dimention)
+    
 #create Index if Note
-# create_index(dimention)
-
+    create_index(dimention)
+    
 #Store Vector in Pinecone
-# vector(text)
-
+    vector(text)
+    
 #Output
-# search()
+    search()
+    
+    
+
+
+
+
+
+
+
+
+
+
 
     
 

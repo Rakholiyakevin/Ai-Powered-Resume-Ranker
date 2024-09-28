@@ -1,25 +1,25 @@
 import os
-from PyPDF2 import PdfReader
+
+import pdfplumber
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 load_dotenv()
-def Folder_loder(folder_path):
+def Folder_loader(folder_path):
+    pdf_files = []  # List to store all PDF file paths
     for filename in os.listdir(folder_path):
         if filename.endswith(".pdf"):
             file_path = os.path.join(folder_path, filename)
-            print(file_path,filename)
-            return file_path
+            # print(file_path, filename)
+            pdf_files.append(file_path)  # Add each PDF file path to the list
+    return pdf_files  # Return the list of PDF files
         
 def fileLoder(file_path):
-    path =file_path
-    reader = PdfReader(path)
-    number_of_pages = len(reader.pages)
-# page = reader.pages[0]
-    for i in range(number_of_pages):
-        page = reader.pages[i]
-    text = page.extract_text()
-    return(text)
+    with pdfplumber.open(file_path) as pdf:
+        text = ''
+        for page in pdf.pages:
+            text += page.extract_text() + '\n'
+    return text
 
 
 
