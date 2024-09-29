@@ -43,7 +43,7 @@ for pdf in pdf_files:
     vector(text)
     
 #Output
-    search()
+search()
     
     
 
