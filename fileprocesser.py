@@ -10,9 +10,9 @@ genai.configure(api_key = os.getenv("Google_key"))
 
 def get_text_chunks(text):
     
-    text_splitters = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=100)
+    text_splitters = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = text_splitters.split_text(text)
-    print(chunks)
+    # print(chunks)
     return(chunks)
 def get_vactor_store(chunks):
     load_dotenv()

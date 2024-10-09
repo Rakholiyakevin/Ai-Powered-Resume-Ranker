@@ -91,8 +91,8 @@ def vector(text):
    
     # Initialize PineconeVectorStore with the embedding
     pinecone_store = PineconeVectorStore(index_name=index_name, embedding=embeddings, pinecone_api_key=os.getenv("PINECONE"))
-    
+    for i in range(5):
     # Add documents to Pinecone
-    pinecone_store.add_documents(documents)
+        pinecone_store.add_documents(documents)
 
     print("Data successfully stored in vector store")
