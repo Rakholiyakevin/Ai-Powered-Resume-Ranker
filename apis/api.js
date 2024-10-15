@@ -1,3 +1,5 @@
+document.getElementById('submitButton').addEventListener('click', sendResumeData);
+
 async function sendResumeData() {
     const path = "./pdfs";  // You can collect this input dynamically from user
     const user_skills = ['html', 'css', 'ruby', 'java'];  // Skills array from user input

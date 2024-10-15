@@ -29,15 +29,19 @@ def search(degree,user_skills):
   result1 = response1['result'].strip()
 #   print("\n")
 #   print(result5)
-
-
+  
+  
+  #Gmail address
+  query = "what is the candidate's email address(only email address nothing else)"
+  response7 = qa.invoke(query)
+  result7 = response7['result'].strip()
   
   
   
    
   #for degree comparesion
   degree = degree
-  query=f" if it's [{degree}] background give boolian value no any other word"
+  query=f" if it's [{degree}] background give Yes or NO value no any other word"
   response2=qa.invoke(query)
   result2 = response2['result'].strip()
 #   print("\n")
@@ -80,12 +84,12 @@ def search(degree,user_skills):
   #for work experinece
   query ="give me experience of candate like(compnyname:xyx,position:xyz,duration:time)"
   response6 = qa.invoke(query)
-  result6  = response4['result'].strip()
+  result6  = response6['result'].strip()
 #   print("\n")
 #   print("Work Experience:")
 #   print(result6)
   
-  return(result1,result2,result3,result4,result5,result6)
+  return(result1,result2,result3,result4,result5,result6,result7)
   
 #   index.delete(delete_all=True, namespace="")
 #   print("Deleting successfully")
